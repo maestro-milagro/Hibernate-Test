@@ -18,10 +18,10 @@ public class Service {
     }
 
     public String findByCityOfLiving(String city){
-        if(repository.findByCityOfLiving(city).isEmpty()){
+        if(repository.findByCityOfLivin(city).isEmpty()){
             return "No person found with this city";
         }
-        return repository.findByCityOfLiving(city).toString();
+        return repository.findByCityOfLivin(city).toString();
     }
 
     public String findByPersonsID_AgeIsLessThan(int age){

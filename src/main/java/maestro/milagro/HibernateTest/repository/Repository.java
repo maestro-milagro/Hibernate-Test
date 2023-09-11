@@ -5,17 +5,17 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.Data;
 import maestro.milagro.HibernateTest.model.Persons;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @org.springframework.stereotype.Repository
-@Data
-public class Repository {
-    @PersistenceContext
-    private EntityManager entityManager;
+public interface Repository extends JpaRepository<Persons, Long> {
+    List<Persons> findByCityOfLiving(String city);
 
-    public String getPersonsByCity(String city){
-//        var person = entityManager.find(Persons.class, city);
-        var query = entityManager.createNativeQuery(String.format("select * from Persons where city_of_living = '%s'", city), Persons.class);
-        return query.getResultList().toString();
-    }
+    List<Persons> findByPersonsID_AgeIsLessThan(int age);
+
+    List<Persons> findByPersonsID_NameIgnoreCaseAndPersonsID_SurnameIgnoreCase(String name, String surname);
 
 }

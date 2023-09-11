@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
-@Data
 public class Service {
     private final Repository repository;
     @Autowired

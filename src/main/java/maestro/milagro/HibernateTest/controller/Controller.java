@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Data
 public class Controller {
-    Service service;
+    private final Service service;
 
     @Autowired
     public Controller(Service service){

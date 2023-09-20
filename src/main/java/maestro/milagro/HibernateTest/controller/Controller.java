@@ -36,4 +36,8 @@ public class Controller {
     public String getPersonsByAge(@RequestParam String name, @RequestParam String surname){
         return service.findByPersonsID_NameIgnoreCaseAndPersonsID_SurnameIgnoreCase(name, surname);
     }
+    @GetMapping("/hello")
+    public String helloPage(){
+        return "Hello there!";
+    }
 }
